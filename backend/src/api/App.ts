@@ -1,4 +1,5 @@
 import express, { Router } from 'express';
+import cors from 'cors';
 import connectToDatabase from '../database/Connections';
 
 class App {

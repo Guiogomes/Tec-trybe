@@ -42,6 +42,7 @@
     "util": "0.12.4"
   },
   "dependencies": {
+    "@types/cors": "^2.8.12",
     "@types/supertest": "2.0.11",
     "cors": "^2.8.5",
     "express": "4.17.1",
