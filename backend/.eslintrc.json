@@ -22,7 +22,7 @@
     "parserOptions": {
         "ecmaVersion": 2019,
         "sourceType": "module",
-        "project": "./tsconfig.json"
+        "project": "./backend/tsconfig.json"
     },
     "plugins": ["@typescript-eslint", "sonarjs", "editorconfig", "mocha"],
     "rules": {
