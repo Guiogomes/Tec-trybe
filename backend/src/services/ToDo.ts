@@ -23,6 +23,11 @@ class ToDoService {
     const found = await this.model.readOne(id);
     return found;
   }
+
+  async read(): Promise<ToDo[]> {
+    const all = await this.model.read();
+    return all;
+  }
 }
 
 export default ToDoService;
