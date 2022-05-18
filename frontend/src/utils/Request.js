@@ -7,7 +7,7 @@ export const createTask = async (data) => {
     headers: { 'Content-Type': contentType },
     body: JSON.stringify({ ...data }),
   };
-  const response = await fetch(`${url}/agenda`, options);
+  const response = await fetch(`${url}/todos`, options);
   const resolve = response.json();
   return resolve;
 };
@@ -17,7 +17,7 @@ export const readTasks = async () => {
     method: 'GET',
     headers: { 'Content-Type': contentType },    
   }
-  const response = await fetch(`${url}/agenda`, options);
+  const response = await fetch(`${url}/todos`, options);
   const resolve = response.json();
   return resolve;
 };
@@ -29,7 +29,7 @@ export const editTask = async (id, data) => {
     body: JSON.stringify({ ...data }),
   }
 
-  const response = await fetch(`${url}/agenda/${id}`, options);
+  const response = await fetch(`${url}/todos/${id}`, options);
   const resolve = response.json();
   return resolve;
 };
@@ -40,7 +40,7 @@ export const deleteTask = async (id) => {
     headers: { 'Content-Type': contentType },
   }
 
-  const response = await fetch(`${url}/agenda/${id}`, options);
+  const response = await fetch(`${url}/todos/${id}`, options);
   const resolve = response.json();
   return resolve;
 };
