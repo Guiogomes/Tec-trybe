@@ -1,5 +1,6 @@
 # # Contexto
-Teste Técnico da IK Solution. Foi desenvolvido um CRUD/Agenda eletrônica, onde é possivel adicionar, remover, editar e deletar.
+Teste técnico proposto pela Trybe para treinamento de entrevistas técnicas para empresas.\
+Desenvolver uma ToDo list que permita um CRUD e reordenação das tarefas.
 
 ## Técnologias usadas
 
@@ -8,23 +9,26 @@ Front-end:
   - React.js
 
 Back-end:
-  - JavaScript
+  - TypeScript
   - Node.js(MSC)
   - Express
-  - MySql(ORM - Sequelize)
+  - MongoDB(Mongoose)
   - Tests(Mocha, Sinon, Chai)
 
 <br>
 
 ## Requisitos pedidos
 
-[ ] - Acessar tela com relação de compromissos contendo os campos: Nome, Data, Hora e Título da atividade;
+[ ] - Visualizar lista de tarefas, sendo possível reordená-la por ordem alfabética, data ou status;
 
-[ ] - Acessar tela de cadastro que permita inclusão de uma tarefa;
+[ ] - Inserir uma nova tarefa na lista;
 
-[ ] - Acessar tela que permita edição dos dados relacionados a tarefa;
+[ ] - Remover uma tarefa na lista;
 
-[ ] - Criar tela de exclusão da tarefa;
+[ ] - Atualizar uma tarefa na lista;
+
+[ ] - Deve ser possível editar o status da tarefa: pendente, em andamento ou pronta;
+
 
 <br>
 
@@ -33,7 +37,7 @@ Back-end:
 Copie e cole em seu terminal:
 
 ```
-git clone git@github.com:Guiogomes/agenda-eletronica.git && cd agenda-eletronica/app
+git clone git@github.com:Guiogomes/Tec-trybe.git && cd Tec-trybe
 ```
 
 <br>

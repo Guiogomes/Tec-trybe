@@ -1,0 +1,5 @@
+# ignorar a node-modules ao subir o projeto
+node_modules
+
+# ignorar o .env com as variáveis de ambiente
+.env
