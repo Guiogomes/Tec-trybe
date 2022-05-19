@@ -61,6 +61,7 @@ const RegularForm = () => {
         />
       </label>
       <label>
+        Status:
         <select
           onChange={(e) => setStatus(e.target.value)}
         >

@@ -16,7 +16,6 @@ const EditedForm = () => {
     setHidden,
     setIsEdited,
     setDisabled,
-    status,
     setStatus,
   } = useContext(MyContext);
 
