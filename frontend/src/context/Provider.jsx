@@ -9,6 +9,7 @@ export function Provider({ children }) {
   const [Data, setData] = useState('');
   const [Hora, setHora] = useState('');
   const [Titulo, setTitulo] = useState('');
+  const [status, setStatus] = useState('');
   const [hidden, setHidden] = useState(true);
   const [id, setId] = useState(1);
   const [isEdited, setIsEdited] = useState(false);
@@ -22,11 +23,13 @@ export function Provider({ children }) {
   }, [Nome, Data, Hora, Titulo]);
 
   const setToDo = async () => {
-    const newToDo = await createTask({ Nome, Data: new Date(`${Data} ${Hora}`), Titulo });
+    console.log(`${Data} ${Hora}`);
+    const newToDo = await createTask({ title: Nome, dueDate: new Date(`${Data} ${Hora}`), description: Titulo, status: status });
     setNome('');
     setData('');
     setHora('');
     setTitulo('');
+    setStatus('Pendente');
     setHidden(true);
     setToDos([...toDos, newToDo]);
   }
@@ -37,13 +40,13 @@ export function Provider({ children }) {
   }
 
   const deleteToDo = async (id) => {
-    const leftToDos = toDos.filter(toDo => toDo.id !== id);
+    const leftToDos = toDos.filter(toDo => toDo._id !== id);
     await deleteTask(id);
     setToDos(leftToDos);
   }
 
   const editToDo = async () => {
-    const editedToDoIndex = toDos.findIndex(todo => todo.id === id);
+    const editedToDoIndex = toDos.findIndex(todo => todo._id === id);
     const newAgenda = [...toDos];
     newAgenda[editedToDoIndex] = {
       ...newAgenda[editedToDoIndex],
@@ -57,6 +60,7 @@ export function Provider({ children }) {
     setData('');
     setHora('');
     setTitulo('');
+    setStatus('Pendente');
     setHidden(true);
     setToDos(newAgenda);
   }
@@ -68,6 +72,8 @@ export function Provider({ children }) {
     setNome,
     Data,
     setData,
+    status,
+    setStatus,
     hidden,
     setHidden,
     Hora,

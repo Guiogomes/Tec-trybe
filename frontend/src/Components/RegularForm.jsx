@@ -13,6 +13,7 @@ const RegularForm = () => {
     Titulo,
     setTitulo,
     setToDo,
+    setStatus,
     disabled,
   } = useContext(MyContext);
 
@@ -58,6 +59,15 @@ const RegularForm = () => {
           onChange={(e) => setTitulo(e.target.value)}
           value={ Titulo }
         />
+      </label>
+      <label>
+        <select
+          onChange={(e) => setStatus(e.target.value)}
+        >
+          <option value='Pendente'>Pendente</option>
+          <option value='Concluído'>Concluído</option>
+          <option value='Em andamento'>Em andamento</option>
+        </select>
       </label>
       <button
         type='button'
