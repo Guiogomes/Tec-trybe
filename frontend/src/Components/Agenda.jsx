@@ -50,6 +50,7 @@ const Agenda = () => {
           <th>Data</th>
           <th>Hora</th>
           <th>Título</th>
+          <th>Status</th>
           <th>Editar</th>
           <th>Excluir</th>
         </tr>
