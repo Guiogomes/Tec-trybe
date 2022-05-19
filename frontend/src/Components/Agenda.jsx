@@ -49,7 +49,7 @@ const Agenda = () => {
           <th>Nome</th>
           <th>Data</th>
           <th>Hora</th>
-          <th>Título</th>
+          <th>Descrição</th>
           <th>Status</th>
           <th>Editar</th>
           <th>Excluir</th>
