@@ -50,7 +50,7 @@ const RegularForm = () => {
         />
       </label>
       <label>
-        Titulo:
+        Descrição:
         <textarea
           name={ Titulo }
           type='text'
