@@ -28,6 +28,14 @@ class ToDoService {
     const all = await this.model.read();
     return all;
   }
+
+  async deleteToDo(id: string)
+    : Promise<ToDo | ServiceError | null | undefined> {
+    if (!id) return null;
+    if (new Types.ObjectId().toString().length !== id.length) return undefined;
+    const deleted = await this.model.delete(id);
+    return deleted;
+  }
 }
 
 export default ToDoService;
