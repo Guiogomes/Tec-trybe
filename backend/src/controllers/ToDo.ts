@@ -50,6 +50,18 @@ class ToDoController {
     const ToDos = await this.service.read();
     return res.status(this.status.OK).json(ToDos);
   };
+
+  deleteTodo = async (req: Request, res: Response) => {
+    const deleted = await this.service.deleteToDo(req.params.id);
+    if (!deleted) {
+      return res.status(this.status.INTERNAL_SERVER_ERROR)
+        .json({ error: this.errors.internalServerError });
+    }
+    if ('error' in deleted) {
+      return res.status(this.status.B_R).json({ error: this.errors.BR });
+    }
+    return res.status(this.status.OK).json(deleted);
+  };
 }
 
 export default ToDoController;
