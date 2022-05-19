@@ -10,7 +10,7 @@ export const ToDoSchema = z.object({
     invalid_type_error: 'Título da tarefa deve ser uma string',
   }),
   description: z.string().optional(),
-  dueDate: z.date(),
+  dueDate: z.string(),
 });
 
 export type ToDo = z.TypeOf<typeof ToDoSchema>;
