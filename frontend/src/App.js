@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import Agenda from "./Components/Agenda";
+import Form from "./Components/Form";
+import Headers from "./Components/Headers";
+import FillAgenda from "./Components/HiddenForm";
+import { MyContext } from "./context/Provider";
 
 function App() {
+  const { hidden } = useContext(MyContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Headers/>
+      {hidden ? <FillAgenda/> : <Form/>}      
+      <Agenda/>
     </div>
   );
 }
