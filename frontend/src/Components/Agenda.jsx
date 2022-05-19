@@ -26,11 +26,11 @@ const Agenda = () => {
   }, []);
 
   const handleEditClick = (todo, hora) => {
-    setId(todo.id);
-    setNome(todo.Nome);
-    setData(todo.Data.slice(0,10));
+    setId(todo._id);
+    setNome(todo.title);
+    setData(todo.dueDate.slice(0,10));
     setHora(hora);
-    setTitulo(todo.Titulo);
+    setTitulo(todo.description);
     updateToDo();
     setDisabled(true);
   }
@@ -41,6 +41,7 @@ const Agenda = () => {
   }
 
   return(
+    console.log(toDos),
     <table className='table-container'>
       <thead>
         <tr>
@@ -55,15 +56,16 @@ const Agenda = () => {
       <tbody>
         {toDos.map((toDo) => {
           // Para implementar: função que monta data
-          const time = new Date(toDo.Data);
-          console.log(toDo.Data)
+          const time = new Date(toDo.dueDate);
+          console.log(toDo.dueDate)
           const hora = `${time.getHours()}:${time.getMinutes().toString().padStart(2,'0')}`;
           return (
-            <tr key={toDo.id}>
-              <td>{toDo.Nome}</td>
-              <td>{toDo.Data.slice(0,10)}</td>
+            <tr key={toDo._id}>
+              <td>{toDo.title}</td>
+              <td>{toDo.dueDate.slice(0,10)}</td>
               <td>{hora}</td>
-              <td>{toDo.Titulo}</td>
+              <td>{toDo.description}</td>
+              <td>{toDo.status}</td>
               <td>
                 <button
                   onClick={() => handleEditClick(toDo, hora) }
