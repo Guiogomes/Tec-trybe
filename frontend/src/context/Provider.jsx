@@ -9,7 +9,7 @@ export function Provider({ children }) {
   const [Data, setData] = useState('');
   const [Hora, setHora] = useState('');
   const [Titulo, setTitulo] = useState('');
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState('Pendente');
   const [hidden, setHidden] = useState(true);
   const [id, setId] = useState(1);
   const [isEdited, setIsEdited] = useState(false);
@@ -50,9 +50,10 @@ export function Provider({ children }) {
     const newAgenda = [...toDos];
     newAgenda[editedToDoIndex] = {
       ...newAgenda[editedToDoIndex],
-      Nome,
-      Titulo,
-      Data: `${Data} ${Hora}`,
+      title: Nome,
+      description: Titulo,
+      dueDate: `${Data} ${Hora}`,
+      status: status,
     }
     console.log(newAgenda[editedToDoIndex])
     await editTask(id, newAgenda[editedToDoIndex]);
