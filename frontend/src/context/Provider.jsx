@@ -29,7 +29,7 @@ export function Provider({ children }) {
     setData('');
     setHora('');
     setTitulo('');
-    setStatus('Pendente');
+    setStatus('');
     setHidden(true);
     setToDos([...toDos, newToDo]);
   }
@@ -53,7 +53,7 @@ export function Provider({ children }) {
       title: Nome,
       description: Titulo,
       dueDate: `${Data} ${Hora}`,
-      status: status,
+      status,
     }
     console.log(newAgenda[editedToDoIndex])
     await editTask(id, newAgenda[editedToDoIndex]);
@@ -61,7 +61,7 @@ export function Provider({ children }) {
     setData('');
     setHora('');
     setTitulo('');
-    setStatus('Pendente');
+    setStatus('');
     setHidden(true);
     setToDos(newAgenda);
   }
