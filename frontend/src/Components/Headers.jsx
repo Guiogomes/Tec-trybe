@@ -10,7 +10,7 @@ const Headers = () => {
         margin: '20px auto',
         textAlign: 'center',
         color: '#4F4F4F',
-      }}>Agenda Eletrônica</h1>
+      }}>Lista de Tarefas</h1>
     </header>
   );
 };

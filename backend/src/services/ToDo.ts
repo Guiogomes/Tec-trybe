@@ -36,6 +36,14 @@ class ToDoService {
     const deleted = await this.model.delete(id);
     return deleted;
   }
+
+  async update(id: string, data: ToDo)
+    : Promise<ToDo | ServiceError | null | undefined> {
+    if (!id) return null;
+    if (new Types.ObjectId().toString().length !== id.length) return undefined;
+    const updated = await this.model.update(id, data);
+    return updated;
+  }
 }
 
 export default ToDoService;

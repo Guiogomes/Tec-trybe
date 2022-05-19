@@ -15,6 +15,7 @@ const Agenda = () => {
     toDos,
     setToDos,
     setDisabled,
+    setStatus,
   } = useContext(MyContext);
   
   useEffect(() => {
@@ -31,6 +32,7 @@ const Agenda = () => {
     setData(todo.dueDate.slice(0,10));
     setHora(hora);
     setTitulo(todo.description);
+    setStatus(todo.status);
     updateToDo();
     setDisabled(true);
   }
@@ -41,14 +43,14 @@ const Agenda = () => {
   }
 
   return(
-    console.log(toDos),
     <table className='table-container'>
       <thead>
         <tr>
           <th>Nome</th>
           <th>Data</th>
           <th>Hora</th>
-          <th>Título</th>
+          <th>Descrição</th>
+          <th>Status</th>
           <th>Editar</th>
           <th>Excluir</th>
         </tr>
@@ -57,7 +59,6 @@ const Agenda = () => {
         {toDos.map((toDo) => {
           // Para implementar: função que monta data
           const time = new Date(toDo.dueDate);
-          console.log(toDo.dueDate)
           const hora = `${time.getHours()}:${time.getMinutes().toString().padStart(2,'0')}`;
           return (
             <tr key={toDo._id}>
@@ -75,7 +76,7 @@ const Agenda = () => {
               </td>
               <td>
                 <button
-                onClick={() => handleDeleteClick(toDo.id)}
+                onClick={() => handleDeleteClick(toDo._id)}
                 >
                   Excluir
                 </button>

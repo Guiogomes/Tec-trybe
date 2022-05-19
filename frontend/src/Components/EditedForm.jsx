@@ -16,6 +16,7 @@ const EditedForm = () => {
     setHidden,
     setIsEdited,
     setDisabled,
+    setStatus,
   } = useContext(MyContext);
 
   return(
@@ -60,6 +61,16 @@ const EditedForm = () => {
           onChange={(e) => setTitulo(e.target.value)}
           value={ Titulo }
         />
+      </label>
+      <label>
+        Status:
+        <select
+          onChange={(e) => setStatus(e.target.value)}
+        >
+          <option value='Pendente'>Pendente</option>
+          <option value='Concluído'>Concluído</option>
+          <option value='Em andamento'>Em andamento</option>
+        </select>
       </label>
       <button
         type='button'
