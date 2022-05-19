@@ -62,6 +62,22 @@ class ToDoController {
     }
     return res.status(this.status.OK).json(deleted);
   };
+
+  update = async (
+    req: RequestIncrement<ToDo>,
+    res: Response,
+  )
+  : Promise<typeof res> => {
+    const updated = await this.service.update(req.params.id, req.body);
+    if (!updated) {
+      return res.status(this.status.INTERNAL_SERVER_ERROR)
+        .json({ error: this.errors.internalServerError });
+    }
+    if ('error' in updated) {
+      return res.status(this.status.B_R).json({ error: this.errors.BR });
+    }
+    return res.status(this.status.OK).json(updated);
+  };
 }
 
 export default ToDoController;
