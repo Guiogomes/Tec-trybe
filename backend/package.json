@@ -7,9 +7,7 @@
     "dev": "ts-node-dev src/api/index.ts",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test:dev": "mocha -r ts-node/register src/tests/unit/**/*.test.ts --exit -t 60000",
-    "test:coverage": "nyc npm run test:dev",
-    "compose:up": "docker-compose up -d --build",
-    "compose:down": "docker-compose down --remove-orphans"
+    "test:coverage": "nyc npm run test:dev"
   },
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "1.0.2",
