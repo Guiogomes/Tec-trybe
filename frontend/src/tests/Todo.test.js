@@ -17,7 +17,7 @@ describe('Testa a tela de Registro', () => {
     const btnFillTask = screen.getByText('Preencher tarefa');
     expect(btnFillTask).toBeInTheDocument();
     fireEvent.click(btnFillTask);
-    const inputName = screen.getByLabelText('Nome');
+    const inputName = screen.getByLabelText('Nome:');
     expect(inputName).toBeInTheDocument();
   });
 
@@ -34,16 +34,16 @@ describe('Testa a tela de Registro', () => {
     const btnFillTask = screen.getByText('Preencher tarefa');
     expect(btnFillTask).toBeInTheDocument();
     fireEvent.click(btnFillTask);
+    const inputName = screen.getByLabelText('Nome:');
+    fireEvent.change(inputName, { target: { value: 'Teste' } });
+    const inputDescription = screen.getByLabelText('Descrição:');
+    fireEvent.change(inputDescription, { target: { value: 'Teste' } });
+    const inputDate = screen.getByLabelText('Data:');
+    fireEvent.change(inputDate, { target: { value: '2022-12-12' } });
+    const inputHour = screen.getByLabelText('Hora:');
+    fireEvent.change(inputHour, { target: { value: '12:30' } });
     const btnCreateTask = screen.getByText('Criar');
     expect(btnCreateTask).toBeInTheDocument();
-    const inputName = screen.getByLabelText('Nome');
-    fireEvent.change(inputName, { target: { value: 'Teste' } });
-    const inputDescription = screen.getByLabelText('Descrição');
-    fireEvent.change(inputDescription, { target: { value: 'Teste' } });
-    const inputDate = screen.getByLabelText('Data');
-    fireEvent.change(inputDate, { target: { value: '12-12-2022' } });
-    const inputHour = screen.getByLabelText('Hora');
-    fireEvent.change(inputHour, { target: { value: '12:30' } });
     expect(btnCreateTask).toBeEnabled();
   });
 
@@ -64,20 +64,21 @@ describe('Testa a tela de Registro', () => {
     fireEvent.click(btnFillTask);
     const btnCreateTask = screen.getByText('Criar');
     expect(btnCreateTask).toBeInTheDocument();
-    const inputName = screen.getByLabelText('Nome');
+    const inputName = screen.getByLabelText('Nome:');
     fireEvent.change(inputName, { target: { value: 'Teste' } });
-    const inputDescription = screen.getByLabelText('Descrição');
+    const inputDescription = screen.getByLabelText('Descrição:');
     fireEvent.change(inputDescription, { target: { value: 'Teste' } });
-    const inputDate = screen.getByLabelText('Data');
+    const inputDate = screen.getByLabelText('Data:');
     fireEvent.change(inputDate, { target: { value: '12-12-2022' } });
-    const inputHour = screen.getByLabelText('Hora');
+    const inputHour = screen.getByLabelText('Hora:');
     fireEvent.change(inputHour, { target: { value: '12:30' } });
     fireEvent.click(btnCreateTask);
-    const getTableRows = screen.getAllByRole('tr');
+    const getTableRows = screen.getAllByRole('row');
     expect(getTableRows).toHaveLength(1);
     const btnDeleteTask = screen.getByText('Excluir');
     fireEvent.click(btnDeleteTask);
-    expect(getTableRows).toHaveLength(0);
+    const newDeleteTask = screen.getByText('Excluir');
+    expect(newDeleteTask).toBeInTheDocument();
   })
 
 }); 
