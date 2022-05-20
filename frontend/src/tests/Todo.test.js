@@ -1,16 +1,17 @@
 import { screen, fireEvent, render } from '@testing-library/react';
-import renderWithRouter from './helpers/renderWithRouter';
+
 import React from 'react';
 import App from '../App';
+import { Provider } from '../context/Provider';
 
 
 describe('Testa a tela de Registro', () => {
   beforeEach(() => {
-    renderWithRouter(<App />);
-    const { hystory } = renderWithRouter(<App />);
-    const { pathname } = hystory.location;
-    hystory.push('/');
-    expect(pathname).toBe('/');
+    render(
+      <Provider>
+        <App />
+      </Provider>
+    );
   });
 
   test('Verifica se tem o botão de Preencher tarefa', () => {
