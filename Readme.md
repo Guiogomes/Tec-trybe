@@ -66,6 +66,13 @@ cd backend/ && npm install
       ```
       npm run dev
       ```
+### Obs2: Vale destacar que é preciso que o mongo esteja rodando localmente para que as alterações e consultas no banco ocorram.
+
+  - para isso utilize o comando abaixo passando sua senha de sudo:
+
+      ```
+      sudo service mongod start
+      ```
     
     - Iniciar o front-end:
 
