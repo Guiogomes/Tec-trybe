@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:coverage": "nyc npm run test"
+    "test:coverage": "CI=true npm test -- --env=jsdom --coverage"
   },
   "eslintConfig": {
     "extends": [
