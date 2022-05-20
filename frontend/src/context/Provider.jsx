@@ -9,7 +9,7 @@ export function Provider({ children }) {
   const [Data, setData] = useState('');
   const [Hora, setHora] = useState('');
   const [Titulo, setTitulo] = useState('');
-  const [status, setStatus] = useState('Pendente');
+  const [status, setStatus] = useState('');
   const [hidden, setHidden] = useState(true);
   const [id, setId] = useState(1);
   const [isEdited, setIsEdited] = useState(false);
@@ -29,7 +29,6 @@ export function Provider({ children }) {
     setData('');
     setHora('');
     setTitulo('');
-    setStatus('');
     setHidden(true);
     setToDos([...toDos, newToDo]);
   }
@@ -61,7 +60,6 @@ export function Provider({ children }) {
     setData('');
     setHora('');
     setTitulo('');
-    setStatus('');
     setHidden(true);
     setToDos(newAgenda);
   }

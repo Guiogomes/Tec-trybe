@@ -17,6 +17,7 @@ const EditedForm = () => {
     setIsEdited,
     setDisabled,
     setStatus,
+    status
   } = useContext(MyContext);
 
   return(
@@ -52,7 +53,7 @@ const EditedForm = () => {
         />
       </label>
       <label htmlFor={ Titulo }>
-        Titulo:
+        Descrição:
         <textarea
           name={ Titulo }
           type='text'
@@ -66,6 +67,7 @@ const EditedForm = () => {
         Status:
         <select
           onChange={(e) => setStatus(e.target.value)}
+          value={ status }
         >
           <option value='Pendente'>Pendente</option>
           <option value='Concluído'>Concluído</option>
