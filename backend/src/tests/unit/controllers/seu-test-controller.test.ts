@@ -42,7 +42,7 @@ describe('Testing ToDoController methods', () => {
         (toDoService.create as sinon.SinonStub).restore();
       })
     
-      it('Success create car', async () => {
+      it('Success create toDo', async () => {
         await toDoController.create(request as RequestIncrement<ToDo>, response as unknown as Response)
         expect((response.status as sinon.SinonStub).calledWith(201)).to.be.true;
         expect((response.json as sinon.SinonStub).calledWith(sucessToDoCreated)).to.be.true;
@@ -50,25 +50,6 @@ describe('Testing ToDoController methods', () => {
     })
 
     describe('Error case', () => {
-      describe('Testing catch', () => {
-        before(async () => {
-          response.status = sinon.stub().returns(response);
-          response.json = sinon.stub();
-          sinon
-            .stub(toDoService, 'create')
-            .rejects();
-        });
-      
-        after(()=>{
-          (toDoService.create as sinon.SinonStub).restore();
-        })
-      
-        it('Error create car', async () => {
-          await toDoController.create(request as RequestIncrement<ToDo>, response as unknown as Response)
-          expect((response.status as sinon.SinonStub).calledWith(500)).to.be.true;
-          expect((response.json as sinon.SinonStub).calledWith({ error: 'internal Server Error' })).to.be.true;
-        });
-      });
       describe('Testing invalid fields', () => {
         before(async () => {
           response.status = sinon.stub().returns(response);
@@ -82,29 +63,10 @@ describe('Testing ToDoController methods', () => {
           sinon.restore();
         })
       
-        it('Error create car', async () => {
+        it('Error create toDo', async () => {
           await toDoController.create(request as RequestIncrement<ToDo>, response as unknown as Response)
           expect((response.status as sinon.SinonStub).calledWith(400)).to.be.true;
           expect((response.json as sinon.SinonStub).calledWith({ error: 'Bad request' })).to.be.true;
-        });
-      });
-      describe('Testing undefined return', () => {
-        before(async () => {
-          response.status = sinon.stub().returns(response);
-          response.json = sinon.stub();
-          sinon
-            .stub(toDoService, 'create')
-            .resolves(undefined);
-        });
-      
-        after(()=>{
-          sinon.restore();
-        });
-
-        it('Returns undefined', async() => {
-          await toDoController.create(request as RequestIncrement<Car>, response as unknown as Response)
-          expect((response.status as sinon.SinonStub).calledWith(500)).to.be.true;
-          expect((response.json as sinon.SinonStub).calledWith({ error: 'internal Server Error' })).to.be.true;
         });
       });
     })
@@ -132,90 +94,9 @@ describe('Testing ToDoController methods', () => {
       (toDoService.read as sinon.SinonStub).restore();
     })
   
-    it('Success read car', async () => {
+    it('Success read toDo', async () => {
       await toDoController.read(request, response);
       expect((response.status as sinon.SinonStub).calledWith(200)).to.be.true;
-      expect((response.json as sinon.SinonStub).calledWith([sucessToDoCreated])).to.be.true;
-    });
-
-  });
-
-  describe('Testing update method', () => {
-    describe('Error case', () => {
-      describe('Testing invalid fields', () => {
-        const response = {} as Response;
-        const request = {} as RequestIncrement<ToDo>;
-        before(async () => {
-          response.status = sinon.stub().returns(response);
-          response.json = sinon.stub();
-          request.params = { id: new Types.ObjectId().toString() };
-          sinon
-          .stub(toDoService, 'update')
-          .resolves({ error: new ZodError([]) });
-        });
-      
-        after(()=>{
-          sinon.restore();
-        })
-      
-        it('Error readOne car with invalid fields', async () => {
-          await toDoController.update(request as RequestIncrement<ToDo>, response as unknown as Response)
-          expect((response.status as sinon.SinonStub).calledWith(400)).to.be.true;
-        });
-      });
-      
-    });
-
-  });
-
-  describe('Testing delete method', () => {
-    describe('Error case', () => {
-      describe('Testing invalid id', () => {
-        const response = {} as Response;
-        const request = {} as Request;
-
-        before(async () => {
-          response.status = sinon.stub().returns(response);
-          response.json = sinon.stub();
-          request.params = { id: new Types.ObjectId().toString() };
-          sinon
-            .stub(toDoService, 'deleteToDo')
-            .resolves(null);
-        });
-      
-        after(()=>{
-          sinon.restore();
-        })
-      
-        it('Error delete car', async () => {
-          await toDoController.deleteTodo(request, response);
-          expect((response.status as sinon.SinonStub).calledWith(404)).to.be.true;
-          expect((response.json as sinon.SinonStub).calledWith({ error: 'Object not found' })).to.be.true;
-        });
-      });
-    });
-
-    describe('Success case', () => {
-      const response = {} as Response;
-      const request = {} as Request;
-      before(async () => {
-        response.status = sinon.stub().returns(response);
-        response.json = sinon.stub();
-        request.params = { id: new Types.ObjectId().toString() };
-        sinon
-          .stub(toDoService, 'deleteToDo')
-          .resolves(sucessToDoCreated as ToDo);
-      });
-    
-      after(()=>{
-        sinon.restore();
-      })
-    
-      it('Success delete car', async () => {
-        await toDoController.deleteTodo(request, response);
-        expect((response.status as sinon.SinonStub).calledWith(204)).to.be.true;
-        expect((response.json as sinon.SinonStub).calledWith(sucessToDoCreated)).to.be.true;
-      });
     });
 
   });

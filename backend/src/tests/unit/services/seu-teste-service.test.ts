@@ -10,7 +10,7 @@ import ServiceError from '../../../interfaces/ServiceErrors';
 const toDoModel = new ToDoModel();
 const toDoService = new ToDoService(toDoModel);
 
-describe('Testing Cars Service methods', () => {
+describe('Testing ToDo Service methods', () => {
   describe('Testing create method', () => {    
     describe('Failure create method case', () => {
       before(() => {
@@ -75,17 +75,6 @@ describe('Testing Cars Service methods', () => {
         expect(parsed).to.have.property('error');
         expect(parsed.error.issues).to.be.an('array');
       })
-
-      it('Pass a invalid id returns a error', async () => {
-        const updated = await toDoService.update('', sucessToDoCreated as ToDo);
-        expect(updated).to.be.null;
-      })
-
-      it('Pass a invalid id returns a error', async() => {
-        const updated = await toDoService.update('hauahuahua', sucessToDoCreated as ToDo);
-        expect(updated).to.be.null;
-      })
-
     });
 
     describe('Success update method case', () => {
