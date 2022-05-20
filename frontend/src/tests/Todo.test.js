@@ -1,5 +1,4 @@
 import { screen, fireEvent, render } from '@testing-library/react';
-
 import React from 'react';
 import App from '../App';
 import { Provider } from '../context/Provider';
@@ -17,7 +16,7 @@ describe('Testa a tela de Registro', () => {
   test('Verifica se tem o botão de Preencher tarefa', () => {
     const btnFillTask = screen.getByText('Preencher tarefa');
     expect(btnFillTask).toBeInTheDocument();
-    btnFillTask.fireEvent('click');
+    fireEvent.click(btnFillTask);
     const inputName = screen.getByLabelText('Nome');
     expect(inputName).toBeInTheDocument();
   });
@@ -25,7 +24,7 @@ describe('Testa a tela de Registro', () => {
   test('Verifica se tem o botão de Adicionar tarefa', () => {
     const btnFillTask = screen.getByText('Preencher tarefa');
     expect(btnFillTask).toBeInTheDocument();
-    btnFillTask.fireEvent('click');
+    fireEvent.click(btnFillTask);
     const btnCreateTask = screen.getByText('Criar');
     expect(btnCreateTask).toBeInTheDocument();
     expect(btnCreateTask).toBeDisabled();
@@ -34,7 +33,7 @@ describe('Testa a tela de Registro', () => {
   test('Verifica se o botão de criar tarefa fica habilitado se tudo é preenchido corretamente', () => {
     const btnFillTask = screen.getByText('Preencher tarefa');
     expect(btnFillTask).toBeInTheDocument();
-    btnFillTask.fireEvent('click');
+    fireEvent.click(btnFillTask);
     const btnCreateTask = screen.getByText('Criar');
     expect(btnCreateTask).toBeInTheDocument();
     const inputName = screen.getByLabelText('Nome');
@@ -52,17 +51,17 @@ describe('Testa a tela de Registro', () => {
   o botão de preencher tarefa some da tela`, () => {
     const btnFillTask = screen.getByText('Preencher tarefa');
     expect(btnFillTask).toBeInTheDocument();
-    btnFillTask.fireEvent('click');
+    fireEvent.click(btnFillTask);
     const btnEditTask = screen.getByText('Editar');
     expect(btnEditTask).toBeInTheDocument();
-    btnEditTask.fireEvent('click');
+    fireEvent.click(btnEditTask);
     expect(btnFillTask).not.toBeInTheDocument();
   });
 
   test(`Verifica que, ao clicar em deletar uma tarefa, ela desaparece da tela`, () => {
     const btnFillTask = screen.getByText('Preencher tarefa');
     expect(btnFillTask).toBeInTheDocument();
-    btnFillTask.fireEvent('click');
+    fireEvent.click(btnFillTask);
     const btnCreateTask = screen.getByText('Criar');
     expect(btnCreateTask).toBeInTheDocument();
     const inputName = screen.getByLabelText('Nome');
@@ -73,11 +72,11 @@ describe('Testa a tela de Registro', () => {
     fireEvent.change(inputDate, { target: { value: '12-12-2022' } });
     const inputHour = screen.getByLabelText('Hora');
     fireEvent.change(inputHour, { target: { value: '12:30' } });
-    btnCreateTask.fireEvent('click');
+    fireEvent.click(btnCreateTask);
     const getTableRows = screen.getAllByRole('tr');
     expect(getTableRows).toHaveLength(1);
     const btnDeleteTask = screen.getByText('Excluir');
-    btnDeleteTask.fireEvent('click');
+    fireEvent.click(btnDeleteTask);
     expect(getTableRows).toHaveLength(0);
   })
 
