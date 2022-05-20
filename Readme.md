@@ -7,6 +7,7 @@ Desenvolver uma ToDo list que permita um CRUD e reordenação das tarefas.
 Front-end:
   - JavaScript
   - React.js
+  - RTL(React Test Library)
 
 Back-end:
   - TypeScript
@@ -46,35 +47,30 @@ git clone git@github.com:Guiogomes/Tec-trybe.git && cd Tec-trybe
 
 Front-end:
 ```bash
-cd front-end/ && npm install
+cd frontend/ && npm install
 ``` 
 
 Back-end:
 ```bash
-cd back-end/ && npm install
+cd backend/ && npm install
 ``` 
 
 <br>
 
 ## Executando aplicação
-### Obs: executar os comandos a partir da raiz do projeto (pasta app)
-### Obs 2: por favor, siga a ordem proposta, para não ter possíveis erros de execução da aplicação.
-
-  - O comando instalara as dependências de front-end e back-end:
-
-  **npm run start** 
+### Obs: por favor, siga a ordem proposta, para não ter possíveis erros de execução da aplicação.
 
   - separando em dois terminais faça os comando a seguir para rodar localmente a aplicação:
     - Iniciar o back-end:
 
       ```
-      npm run start-application-back-end
+      npm run dev
       ```
     
     - Iniciar o front-end:
 
       ```
-      npm run start-application-front-end
+      npm run start
       ```
 <br>
 
@@ -85,10 +81,10 @@ cd back-end/ && npm install
 
  - Back-end:
 
-  É nescessario que a porta 3001 esteja livre para rodar o test do back-end, então o npm start não pode estar ativos. 
+### Obs: É nescessario que a porta 3001 esteja livre para rodar o test do back-end, então o npm run dev não pode estar ativos. 
   
   ```
-  cd backend/ && npm test
+  cd backend/ && npm run test:dev
   ```
 
   Para conferir a cobertura de testes:
@@ -97,3 +93,14 @@ cd back-end/ && npm install
   cd backend && npm run test:coverage
   ```
   
+  - Front-end:
+
+  ```
+  cd frontend/ && npm run test
+  ```
+
+  Para conferir a cobertura de testes:
+
+  ```
+  cd frontend && npm run test:coverage
+  ```
