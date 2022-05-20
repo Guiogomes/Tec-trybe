@@ -4,3 +4,10 @@ coverage
 */src/tests
 __tests__
 nyc.config.js
+frontend/serviceWorker.js
+frontend/reportWebVitals.js
+frontend/setupTests.js
+.gitattributes
+frontend/src/index.js
+frontend/build/*
+jest.config.js
