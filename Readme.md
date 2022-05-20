@@ -7,6 +7,7 @@ Desenvolver uma ToDo list que permita um CRUD e reordenação das tarefas.
 Front-end:
   - JavaScript
   - React.js
+  - RTL(React Test Library)
 
 Back-end:
   - TypeScript
@@ -80,7 +81,7 @@ cd backend/ && npm install
 
  - Back-end:
 
-  É nescessario que a porta 3001 esteja livre para rodar o test do back-end, então o npm run dev não pode estar ativos. 
+### Obs: É nescessario que a porta 3001 esteja livre para rodar o test do back-end, então o npm run dev não pode estar ativos. 
   
   ```
   cd backend/ && npm run test:dev
