@@ -3,3 +3,4 @@ node_modules
 
 # ignorar o .env com as variáveis de ambiente
 .env
+
