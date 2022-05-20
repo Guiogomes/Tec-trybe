@@ -2,7 +2,8 @@ import { screen, fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import App from '../App';
 import { Provider } from '../context/Provider';
-
+// Script de test:coverage feito com ajuda do Henrique Almeida e através
+// do link: https://stackoverflow.com/questions/57886008/how-to-get-code-coverage-in-react-with-react-testing-library
 
 describe('Testa a tela de Registro', () => {
   beforeEach(() => {
